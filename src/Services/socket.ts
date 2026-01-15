@@ -80,14 +80,14 @@ export const inActiveConversation = (conversationId: string) => {
 // ---- Message listeners ----
 export const onMessageNew = (cb: (msg: MessageResponseDto) => void) => {
   socket.on("message:new", cb);
-  return () => socket.off("message:new", cb);
+  return () => {socket.off("message:new", cb)}
 };
 
 export const onMessageDeleted = (
   cb: (payload: { messageId: string }) => void
 ) => {
   socket.on("message:deleted", cb);
-  return () => socket.off("message:deleted", cb);
+  return () => {socket.off("message:deleted", cb)}
 };
 
 // ---- Message actions ----
@@ -135,5 +135,5 @@ export const onUnreadUpdate = (
   }) => void
 ) => {
   socket.on("conversation:unreadUpdate", cb);
-  return () => socket.off("conversation:unreadUpdate", cb);
+  return () => {socket.off("conversation:unreadUpdate", cb)}
 };
