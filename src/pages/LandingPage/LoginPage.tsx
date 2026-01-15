@@ -12,6 +12,7 @@ import { useNavigate } from "react-router";
 import type { ApiError } from "../../dto/apiError";
 import nameDarkTheme from "../../assets/name_dark-theme.svg";
 import nameLightTheme from "../../assets/name_light-theme.svg";
+import { socket } from "../../Services/socket";
 const signupSchema = z.object({
   username: z.string().min(2, "Username must be at least 2 characters long"),
 
@@ -45,6 +46,9 @@ function LoginPage() {
     onSuccess: (data: RegisterResponseDto) => {
       dispatch(login({ userData: data })); //remember to chage it
       setToast({ type: "success", message: "User Login successfully!" });
+      socket.disconnect();
+      socket.connect();
+
       navigate("/Home");
     },
     onError: (error: unknown) => {
