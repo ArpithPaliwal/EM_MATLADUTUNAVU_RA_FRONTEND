@@ -39,15 +39,16 @@ socket.on("connect_error", (err) => {
 });
 
 // ---- Controls ----
-export const connectSocket = () => {
+export const connectSocket = (): void => {
   if (!socket.connected) {
     socket.connect();
   }
 };
 
-export const disconnectSocket = () => {
+export const disconnectSocket = (): void => {
   if (socket.connected) socket.disconnect();
 };
+
 
 // ---- Conversation ----
 export const joinConversations = (conversationIds: string[]) => {
