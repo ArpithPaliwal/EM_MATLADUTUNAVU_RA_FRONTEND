@@ -1,0 +1,67 @@
+
+/* Hide scrollbar globally but keep scrolling */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* Internet Explorer */
+html {
+  -ms-overflow-style: none;
+}
+
+
+@import "tailwindcss";
+
+:root {
+  --primary-background: #ffffff;
+  --secondary-background: #0096c7;
+  --third-background:#d1d5dc;
+  --primary-text: #0f172a;
+  --secondary-text: #696b6e;
+}
+
+[data-theme="dark"] {
+  --primary-background: #002147;
+  --secondary-background: #0096c7;
+  --third-background:#a9cdf6;
+  --primary-text: #f3f4f6;
+  --secondary-text: #cdd2da;
+}
+
+
+
+/* professional theme utility classes */
+.bg-primary {
+  background: var(--primary-background);
+}
+
+.bg-secondary {
+  background: var(--secondary-background);
+}
+.bg-third {
+  background: var(--third-background);
+}
+
+.text-primary {
+  color: var(--primary-text);
+}
+
+.text-secondary {
+  color: var(--secondary-text);
+}
+
+.border-primary {
+  border-color: var(--secondary-background);
+}
+
+.border-secondary {
+  
+  border-color: var(--primary-text);
+}
